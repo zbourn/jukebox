@@ -1,0 +1,41 @@
+<mvc:View controllerName="nad.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<SearchField id="idSfield" placeholder="Search via artist, song or album." search="onSearch"></SearchField>
+					<Table id="idTab" headerText="Songs List..." items="{path: '/results'}" selectionChange="onSelect" fixedLayout="true" >
+						<columns>
+							<Column width="10rem">
+								<Text text="Cover"/>
+							</Column>
+							<Column width="10rem">
+								<Text text="Artist"/>
+							</Column>
+							<Column width="10rem">
+								<Text text="Track"/>
+							</Column>
+							<Column width="10rem">
+								<Text text="Preview"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Image src="{artworkUrl100}"/>
+									<Text text="{artistName}"/>
+									<ObjectIdentifier text="{trackName}"/>
+									<HBox alignItems="Center" justifyContent="SpaceAround">
+										<core:HTML content='&lt;audio src=&quot;{previewUrl}&quot; controls /&gt;'>
+											
+										</core:HTML>
+										</HBox>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
